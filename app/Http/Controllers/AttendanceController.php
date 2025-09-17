@@ -1,0 +1,2 @@
+<?php
+namespace App\Http\Controllers;use Illuminate\Http\Request;use App\Models\{Enrollment, Attendance};class AttendanceController extends Controller {public function checkin(Request $r, Enrollment $enrollment) {$date = now()->toDateString();$attendance = Attendance::firstOrCreate(['enrollment_id'=>$enrollment->id, 'class_date'=>$date],['status'=>'present','checked_by'=>optional($r->user())->id]);return view('attendance.checked', compact('attendance','enrollment'));}}

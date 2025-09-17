@@ -1,0 +1,2 @@
+<?php
+namespace App\Models;use Illuminate\Database\Eloquent\Model;class Attendance extends Model {protected $fillable = ['enrollment_id','class_date','status','notes','checked_by'];protected $casts = ['class_date'=>'date'];public function enrollment(){ return $this->belongsTo(Enrollment::class); }}
